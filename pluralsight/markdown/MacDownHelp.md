@@ -1,3 +1,5 @@
+*This document is copied from* [MacDown Help](https://github.com/MacDownApp/macdown/blob/master/MacDown/Resources/help.md)
+
 # MacDown
 
 ![MacDown logo](http://macdown.uranusjr.com/static/images/logo-160.png)
