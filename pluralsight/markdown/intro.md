@@ -82,6 +82,12 @@ This is a link: <http://www.news.sina.com>
 <input type="text" name="location" geo-location />
 ```
 
+```python
+import sys
+for i in range(3):
+	print("hello world")
+```
+
 *add relative links to docs on the server* `[attribute text](path relative to this md file)`
 
 The link to [example.md](./example.md)
