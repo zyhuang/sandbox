@@ -82,11 +82,25 @@ This is a link: <http://www.news.sina.com>
 <input type="text" name="location" geo-location />
 ```
 
+*add relative links to docs on the server* `[attribute text](path relative to this md file)`
+
+The link to [example.md](./example.md)
+
+*add in-page nevigation*  `[Section Name](#section-name)`
+
+- [Section 1](#section-1)
+- [Section 2](#section-2)
+- [Section 3](#section-3)
 
 
+Section 1
+----
 
+Section 2
+----
 
-adfadsf
+Section 3
+----
 
 
 
