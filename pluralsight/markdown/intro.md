@@ -8,12 +8,12 @@ second level header
 
 *or mark header using hash tags* `#`
 
-#first level header
-##second level header
-###third level header
-####fourth level header
-#####fifth level header
-######sixth level header
+# first level header
+## second level header
+### third level header
+#### fourth level header
+##### fifth level header
+###### sixth level header
 
 *horizontal lines using* `-`*,* `*` *or* `_`
 
