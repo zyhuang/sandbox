@@ -75,7 +75,7 @@ This is a link: <http://www.news.sina.com>
 		label: 'My Label'
 	}
 
-*wrap block of codes with triple \`\`\` and the language name (coding highlighting will be rendered on the server side*
+*wrap block of codes with triple \`\`\` and optionally followed by the language name (coding highlighting will be rendered on the server side*
 
 
 ```html
