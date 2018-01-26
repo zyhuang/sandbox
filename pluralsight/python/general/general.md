@@ -3,7 +3,7 @@
 
 * Raw string: `'\n'` gives the newline. `r'\n'` gives `'\n'` literally.
 * Unicode string representations: unicode `'\uxxxx'` (`'\u'` + 4-characters), hexidesimal `'\xaa'` (`'\x'` + 2-characters),  octal `'\nnn'` (`'\'` + 3-digits). 
-* Byte string `b'data'` is converted to and from Unicode string using `bS.decode()` and `uS.encode()` methods (see [Codecs](https://docs.python.org/3/library/codecs.html)). For example
+* Byte string is commonly used in files, network resources and HTTP requests. It can be converted to and from Unicode string using `uS = bS.decode('utf-8')` and `bS = uS.encode('utf-8')` methods (see [Codecs](https://docs.python.org/3/library/codecs.html)). For example, 
 
 
 ```python
