@@ -43,7 +43,7 @@ def read_text(in_name):
 
 # -------------------------------------------------------------------------
 
-def play():
+def play_midi_file():
 
     import pygame
     pygame.init()
@@ -56,11 +56,27 @@ def play():
     pass
 
 
+def play_midi_obj():
+    # This will give following error
+    # pygame.midi.MidiException: 'Device id invalid, out of range.'
+
+    import pygame.midi
+    import time
+
+    pygame.midi.init()
+    player = pygame.midi.Output(0)
+    player.set_instrument(0)
+    player.note_on(64, 127)
+    time.sleep(1)
+    player.note_off(64, 127)
+    del player
+    pygame.midi.quit()
+
 
 
 if __name__ == '__main__':
 
-    play()
+    play_midi_obj()
 
 
 # end
