@@ -4,7 +4,22 @@ import os, sys, json, re
 
 def pileup_parser(pu_str):
 
-    pu_list = re.findall(r'(\^.[\.,a-zA-Z]|.\$|[\.,][\+\-]\d+[a-zA-Z]+|[\*\.,a-zA-Z])', pu_str)
+    # pu_list = re.findall(r'(\^.[\.,a-zA-Z]|.\$|[\.,][\+\-]\d+[a-zA-Z]+|[\*\.,a-zA-Z])', pu_str)
+    tmp = re.findall(r'(\^.[\.,a-zA-Z]|.\$|[\.,][\+\-]\d+[a-zA-Z]+\$?|[\*\.,a-zA-Z])', pu_str)
+    pu_list = []
+    for x in tmp:
+        if re.findall(r'[\.,][\+\-]', x):
+            prefix, nbp, suffix = re.findall(r'([\.,][\+\-])(\d+)(.*?)$', x)[0]
+            nbp_int = int(nbp)
+            pu_list.append(prefix + nbp + suffix[:nbp_int])
+            for c in suffix[nbp_int:]:
+                if c != '$':
+                    pu_list.append(c)
+                else:
+                    pu_list[-1] += '$'
+        else:
+            pu_list.append(x)
+    
     if pu_str != ''.join(pu_list):
         print('*ERROR* pileup list can not reproduce pileup string:\n<< {}\n>>{}'
               .format(pu_str, ''.join(pu_list)), file=sys.stderr)
@@ -45,3 +60,4 @@ if __name__ == '__main__':
 
 
 # end
+# ty to Zhuoyi
