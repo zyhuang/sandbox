@@ -4,7 +4,6 @@ import os, sys, json, re
 
 def pileup_parser(pu_str):
 
-    # pu_list = re.findall(r'(\^.[\.,a-zA-Z]|.\$|[\.,][\+\-]\d+[a-zA-Z]+|[\*\.,a-zA-Z])', pu_str)
     tmp = re.findall(r'(\^.[\.,a-zA-Z]|.\$|[\.,][\+\-]\d+[a-zA-Z]+\$?|[\*\.,a-zA-Z])', pu_str)
     pu_list = []
     for x in tmp:
@@ -19,7 +18,7 @@ def pileup_parser(pu_str):
                     pu_list[-1] += '$'
         else:
             pu_list.append(x)
-    
+
     if pu_str != ''.join(pu_list):
         print('*ERROR* pileup list can not reproduce pileup string:\n<< {}\n>>{}'
               .format(pu_str, ''.join(pu_list)), file=sys.stderr)
@@ -37,7 +36,7 @@ def parse(in_file, out_file):
         data = line.rstrip().split('\t')
 
         pu_list = pileup_parser(data[4])
-        print('<<', data[4], file=fout)
+        print('<<', data[0], data[1], data[4], file=fout)
         print('>>', pu_list, file=fout)
         if int(data[3]) != len(pu_list):
             print('*WARNING* different number of reads: expected {}, parsed {}, input line:\nLine{}: {} ...'
@@ -45,7 +44,7 @@ def parse(in_file, out_file):
 
         if data[7] != '0':
             pu_list = pileup_parser(data[8])
-            print('<<', data[8], file=fout)
+            print('<<', data[0], data[1], data[8], file=fout)
             print('>>', pu_list, file=fout)
             if int(data[7]) != len(pu_list):
                 print('*WARNING* different number of reads: expected {}, parsed {}, input line: #{}\nLine{}: {} ...'
